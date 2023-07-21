@@ -1,7 +1,7 @@
 import type { V2_MetaFunction } from "@remix-run/cloudflare";
 import { useLoaderData } from "@remix-run/react";
 import { graphql } from '../graphql/gql';
-import { gql, request } from 'graphql-request'
+import { Query } from '../graphql/graphql';
 import graphqlClient from '../graphql-client';
 
 export const meta: V2_MetaFunction = () => {
@@ -26,13 +26,17 @@ export async function loader() {
 }
 
 export default function Index() {
-  const data = useLoaderData<typeof loader>();
+  const data = useLoaderData() as Query;
 
   return (
     <div style={{ fontFamily: "system-ui, sans-serif", lineHeight: "1.8" }}>
       <h1>Welcome to Remix</h1>
       <div>
-        { JSON.stringify(data.locations) }
+        <ol>
+          {data.locations.map((location) => (
+            <li key={location.id ?? "0"}>{location.name}</li>
+          ))}
+        </ol>
       </div>
       <ul>
         <li>
