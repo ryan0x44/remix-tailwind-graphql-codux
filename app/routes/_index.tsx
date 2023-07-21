@@ -3,6 +3,7 @@ import { useLoaderData } from "@remix-run/react";
 import { graphql } from '../graphql/gql';
 import { Query } from '../graphql/graphql';
 import graphqlClient from '../graphql-client';
+import ExampleComponent from '../components/example';
 
 export const meta: V2_MetaFunction = () => {
   return [
@@ -38,31 +39,7 @@ export default function Index() {
           ))}
         </ol>
       </div>
-      <ul>
-        <li>
-          <a
-            target="_blank"
-            href="https://remix.run/tutorials/blog"
-            rel="noreferrer"
-          >
-            15m Quickstart Blog Tutorial
-          </a>
-        </li>
-        <li>
-          <a
-            target="_blank"
-            href="https://remix.run/tutorials/jokes"
-            rel="noreferrer"
-          >
-            Deep Dive Jokes App Tutorial
-          </a>
-        </li>
-        <li>
-          <a target="_blank" href="https://remix.run/docs" rel="noreferrer">
-            Remix Docs
-          </a>
-        </li>
-      </ul>
+      <ExampleComponent />
     </div>
   );
 }
