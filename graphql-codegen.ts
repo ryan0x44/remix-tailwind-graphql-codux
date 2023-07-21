@@ -5,8 +5,9 @@ const config: CodegenConfig = {
   overwrite: true,
   schema: "graphql-schema.graphql",
   documents: "app/**/*.tsx",
+  ignoreNoDocuments: true,
   generates: {
-    "app/graphql": {
+    "app/graphql/": {
       preset: "client",
       plugins: []
     },
